@@ -77,3 +77,25 @@ Keywords: Edge Computing, Sensor Fusion, The Perception Dilemma. -->
 
 
 <!-- Slide 3 -->
+
+---
+transition: slide-up
+---
+
+# Motivation
+
+<div class="grid grid-cols-2 gap-10 mt-15">
+
+  <div v-click class="text-center">
+    <img src="/juniper.jpg" class="rounded-3xl shadow-2xl border border-white/10 mb-6 w-full aspect-video object-cover" />
+    <h2 class="text-3xl font-bold tracking-tight">Tesla</h2>
+    <p class="opacity-50 mt-2">The "Human" Approach <br/>Cameras Only</p>
+  </div>
+
+  <div v-click class="text-center">
+    <img src="/waymo.jpg" class="rounded-3xl shadow-2xl border border-white/10 mb-6 w-full aspect-video object-cover" />
+    <h2 class="text-3xl font-bold tracking-tight text-emerald-400">Waymo</h2>
+    <p class="opacity-50 mt-2">The "Robot" Approach <br/>LiDAR + Radar</p>
+  </div>
+
+</div>
