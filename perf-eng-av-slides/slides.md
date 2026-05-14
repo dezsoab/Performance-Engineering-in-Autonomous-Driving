@@ -1,7 +1,7 @@
 ---
 theme: apple-basic
 class: text-center
-transition: slide-left
+transition: slide-up
 ---
 
 <img src="/fh-green-bg.jpg" class="absolute inset-0 w-full h-full object-cover -z-10" />
@@ -21,11 +21,5 @@ Comparing latency and throughput of vision and ranging data pipelines
 </div>
 
 ---
-transition: fade-out
+transition: slide-up
 ---
-
-# The Perception Dilemma
-
-* Camera weakness: Texture blindness
-* LiDAR weakness: Z-axis blindness
-* The Constraint: 25ms reaction time
