@@ -67,17 +67,7 @@ transition: slide-up
 
 </div>
 
-<!-- Slide 2: The Hook & Background
-
-Action: Pick up the physical rover skeleton.
-
-Content: Introduce the industry divide. Tell about the relevance as Tesla FSD is on the corner in the EU. Big companies throw supercomputers at autonomous driving (like Tesla's vision-only or heavy LiDAR setups -> here show images of both). But what happens when you try to put both a camera and a laser on a tiny, low-power edge device?
-
-Keywords: Edge Computing, Sensor Fusion, The Perception Dilemma. -->
-
-
 <!-- Slide 3 -->
-
 ---
 transition: slide-up
 ---
@@ -86,16 +76,72 @@ transition: slide-up
 
 <div class="grid grid-cols-2 gap-10 mt-15">
 
-  <div v-click class="text-center">
+  <div v-click class="duration-800 text-center">
     <img src="/juniper.jpg" class="rounded-3xl shadow-2xl border border-white/10 mb-6 w-full aspect-video object-cover" />
     <h2 class="text-3xl font-bold tracking-tight">Tesla</h2>
     <p class="opacity-50 mt-2">The "Human" Approach <br/>Cameras Only</p>
   </div>
 
-  <div v-click class="text-center">
+  <div v-click class="duration-800 text-center">
     <img src="/waymo.jpg" class="rounded-3xl shadow-2xl border border-white/10 mb-6 w-full aspect-video object-cover" />
     <h2 class="text-3xl font-bold tracking-tight text-emerald-400">Waymo</h2>
     <p class="opacity-50 mt-2">The "Robot" Approach <br/>LiDAR + Radar</p>
   </div>
 
+</div>
+
+<!-- Slide 4 -->
+---
+transition: slide-up
+---
+
+# The Problem
+
+<div class="grid grid-cols-3 gap-8 mt-10">
+
+  <div v-click="1" class="duration-800 p-8 rounded-3xl border border-white/10 bg-white/5 text-center">
+    <div class="text-xs font-mono opacity-40 mb-0 uppercase tracking-widest">RQ1</div>
+    <h2 class="!text-3xl !font-extrabold !text-emerald-400">Accuracy</h2>
+    <p class="opacity-50 mt-4 text-xs">Obstacle blindness.</p>
+    <div class="relative w-full aspect-video mt-6 rounded-xl overflow-hidden border border-white/10">
+      <img v-click="2" src="/bottle-far.png" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" />
+      <img v-click="3" src="/bottle-close.png" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" />
+    </div>
+    <p v-click="3" class="text-[10px] opacity-40 mt-2 transition-opacity duration-1000">Vision Failure at < 25cm</p>
+  </div>
+
+  <div v-click="4" class="duration-800 p-8 rounded-3xl border border-white/10 bg-white/5 text-center">
+    <div class="text-xs font-mono opacity-40 mb-0 uppercase tracking-widest">RQ2</div>
+    <h2 class="!text-3xl !font-extrabold !text-blue-400">Efficiency</h2>
+    <p class="opacity-50 mt-4 text-xs">25ms constraint.</p>
+    <div v-click="5" class="mt-6 p-4 bg-blue-500/10 rounded-xl border border-blue-500/20">
+      <div class="text-xs font-bold text-blue-400 uppercase tracking-tighter">Human Threshold</div>
+      <div class="text-2xl font-bold">~13ms</div>
+      <p class="text-[10px] opacity-40 mt-1 italic">Target: Real-Time Parity</p>
+    </div>
+  </div>
+
+  <div v-click="6" class="duration-800 p-8 rounded-3xl border border-white/10 bg-white/5 text-center flex flex-col justify-between">
+    <div>
+      <div class="text-xs font-mono opacity-40 mb-0 uppercase tracking-widest">RQ3</div>
+      <h2 class="!text-3xl !font-extrabold !text-purple-400">Robustness</h2>
+      <p class="opacity-50 mt-4 text-xs">Uncontrolled worlds.</p>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Slide 5 -->
+---
+layout: center
+transition: slide-up
+---
+
+# Uncontrolled environment
+
+<div class="mt-8 rounded-3xl overflow-hidden border border-white/10 shadow-2xl w-full max-w-3xl mx-auto bg-black">
+  <video autoplay loop muted playsinline class="w-full h-full object-cover">
+    <source src="/demo.mp4" type="video/mp4">
+  </video>
 </div>
