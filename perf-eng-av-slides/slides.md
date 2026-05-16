@@ -230,7 +230,7 @@ graph LR
 transition: slide-up
 ---
 
-# Min-Trust Model
+# Min-Trust model
 
 ````md magic-move [fusion_strategy.py] {lines: true}
 ```python {*|1-2|3-4|6}
@@ -269,3 +269,145 @@ class FusionStrategy(ObstacleStrategy):
         ...
 ```
 ````
+
+<!-- Slide 9 -->
+
+---
+transition: slide-up
+---
+
+# RQ1: Detection accuracy
+<div class="grid grid-cols-2 gap-10 mt-4">
+  <div>
+    <div class="flex items-center gap-3 mb-6">
+      <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30">HYPOTHESIS ACCEPTED</span>
+    </div>
+    <div class="mt-8 space-y-4">
+      <div v-click="1" class="p-4 rounded-xl bg-white/5 border border-white/10">
+        <h4 class="text-xs font-bold text-slate-400 uppercase mb-2">LiDAR Only</h4>
+        <div class="text-xl font-mono text-red-400">100% Collision Rate</div>
+        <div class="text-[10px] opacity-40 italic">*Obstacles below scan-height (Z < 10cm | or mounting point)</div>
+      </div>
+      <div v-click="2" class="p-4 rounded-xl bg-white/5 border border-white/10">
+        <h4 class="text-xs font-bold text-slate-400 uppercase mb-2">Camera Only</h4>
+        <div class="text-xl font-mono text-red-400">100% Collision Rate</div>
+        <div class="text-[10px] opacity-40 italic">*Failure due to texture blindness</div>
+      </div>
+      <div v-click="3" class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
+        <h4 class="text-xs font-bold text-emerald-400 uppercase mb-2">Sensor Fusion</h4>
+        <div class="text-xl font-mono text-emerald-400">10% Collision Rate</div>
+        <div class="text-[10px] opacity-40 italic">Camera triggers failsafe for low-profile objects</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-center">
+    <div class="p-6 rounded-3xl bg-black/40 border border-white/5 shadow-2xl">
+      <div class="text-[10px] text-center opacity-30 mb-4 tracking-tighter">PERCEPTION OVERLAP</div>
+      <div class="relative w-64 h-64 border-2 border-dashed border-white/10 rounded-full flex items-center justify-center">
+        <div class="absolute w-48 h-48 bg-blue-500/20 border border-blue-500/50 rounded-full flex items-center justify-center text-[10px] font-bold">LiDAR (Far)</div>
+        <div class="absolute w-32 h-32 bg-purple-500/30 border border-purple-500/60 rounded-full flex items-center justify-center text-[10px] font-bold">Camera (Near)</div>
+        <div class="z-10 bg-emerald-500 px-2 py-1 rounded text-[8px] font-black uppercase">Fusion Zone</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 10 -->
+---
+transition: slide-up
+---
+
+# RQ2: Computational Efficiency
+
+<div class="flex items-center gap-3 mt-4 mb-12">
+  <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30 uppercase tracking-widest">Hypothesis Accepted</span>
+</div>
+
+<div class="grid grid-cols-3 gap-6">
+
+<!-- "We don't need HD video to avoid a wall. By downsampling the camera feed to 320x230, we reduce the memory load by 92%. This makes the data small enough for the Raspberry Pi's cache to handle without lagging." -->
+  <div v-click="1" class="p-6 rounded-2xl bg-blue/5 border border-blue/10 flex flex-col justify-between h-64">
+    <div>
+      <div class="text-blue-400 mb-4"><carbon:image-search /></div>
+      <h3 class="text-xs font-bold text-blue-400 uppercase tracking-widest">Memory Footprint</h3>
+    </div>
+    <div>
+      <div class="text-5xl font-black text-blue font-mono">-92%</div>
+      <p class="text-[10px] opacity-40 mt-3 font-mono">1280x720 → 320x230</p>
+    </div>
+  </div>
+
+<!-- Instead of a 'brute-force' analysis of every pixel, we implemented 3-Ray Scanline Analysis. By only evaluating three specific vertical columns (the center and the paths of the two wheels), we reduce the CPU's workload from processing 73,600 pixels to just 690 pixels per loop. This makes the vision pipeline extremely lightweight -->
+  <div v-click="2" class="p-6 rounded-2xl bg-orange/5 border border-orange/10 flex flex-col justify-between h-64">
+    <div>
+      <div class="text-orange-400 mb-4"><carbon:View-Next /></div>
+      <h3 class="text-xs font-bold text-orange-400 uppercase tracking-widest">Algorithmic Load</h3>
+    </div>
+    <div>
+      <div class="text-5xl font-black text-orange font-mono">690</div>
+      <p class="text-[10px] opacity-40 mt-3 font-mono">Pixels / Loop (3-Ray Scanline)</p>
+    </div>
+  </div>
+
+<!-- The final breakthrough came from Asynchronous Threading. By moving the 'heavy' I/O tasks like logging and sensor polling into background threads, we decoupled the main control loop from hardware waiting times. This resulted in a 10.4x speedup, bringing latency down from 168ms to a stable 16.2ms -->
+  <div v-click="3" class="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex flex-col justify-between h-64">
+    <div>
+      <div class="text-emerald-400 mb-4"><carbon:flash /></div>
+      <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Execution Speed</h3>
+    </div>
+    <div>
+      <div class="text-5xl font-black text-emerald-400 font-mono">10.4x</div>
+      <p class="text-[10px] opacity-40 mt-3 font-mono">168.6ms → 16.2ms Latency</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Slide 11 -->
+---
+transition: slide-up
+---
+
+# RQ3: Operational Robustness
+
+<div class="flex items-center gap-3 mt-4 mb-12">
+  <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30 uppercase tracking-widest">Hypothesis Accepted</span>
+</div>
+
+<div class="grid grid-cols-3 gap-6">
+
+  <div v-click="1" class="p-6 rounded-2xl bg-orange-500/25 border border-orange-500/20 flex flex-col justify-between h-64">
+    <div>
+      <div class="text-orange-400 mb-4"><carbon:view-off /></div>
+      <h3 class="text-xs font-bold text-orange-400 uppercase tracking-widest">Camera Panic</h3>
+    </div>
+    <div>
+      <div class="text-5xl font-black text-white font-mono">FAIL</div>
+      <p class="text-[10px] text-orange-400/60 mt-3 font-mono">False-stop triggered by featureless white surfaces</p>
+    </div>
+  </div>
+
+  <div v-click="2" class="p-6 rounded-2xl bg-purple-500/25 border border-purple-500/20 flex flex-col justify-between h-64">
+    <div>
+      <div class="text-purple-400 mb-4"><carbon:layers /></div>
+      <h3 class="text-xs font-bold text-purple-400 uppercase tracking-widest">LiDAR Validation</h3>
+    </div>
+    <div>
+      <div class="text-5xl font-black text-white font-mono">STABLE</div>
+      <p class="text-[10px] text-purple-400/60 mt-3 font-mono">Active tracking regardless of texture surface</p>
+    </div>
+  </div>
+
+  <div v-click="3" class="p-6 rounded-2xl bg-emerald-500/25 border border-emerald-500/20 flex flex-col justify-between h-64">
+    <div>
+      <div class="text-emerald-400 mb-4"><carbon:security /></div>
+      <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-widest">System Reliability</h3>
+    </div>
+    <div>
+      <div class="text-5xl font-black text-emerald-400 font-mono">93%</div>
+      <p class="text-[10px] text-emerald-400/50 mt-3 font-mono">Context-aware system revoked camera authority to maintain safety</p>
+    </div>
+  </div>
+
+</div>
