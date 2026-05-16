@@ -224,3 +224,48 @@ graph LR
     style MC fill:#1e9674,stroke:#047857,color:#fff,stroke-width:2px
 ```
 </div>
+<!-- Slide 8 -->
+
+---
+transition: slide-up
+---
+
+# Min-Trust Model
+
+````md magic-move [fusion_strategy.py] {lines: true}
+```python {*|1-2|3-4|6}
+class FusionStrategy(ObstacleStrategy):
+    def __init__(self):
+        self.lidar = LidarStrategy()
+        self.camera = CameraStrategy()
+
+    def check_path(self):
+        ...
+
+    def stop(self):
+        ...
+```
+```python {*|1-2|3-4|7-8|10-11|13-14|15-16}
+class FusionStrategy(ObstacleStrategy):
+    def check_path(self):
+        l_front, l_left, l_right = self.lidar.check_path()
+        c_front, c_left, c_right = self.camera.check_path()
+
+        # Exclusively trust LiDAR for lateral navigation
+        final_left = l_left
+        final_right = l_right
+
+        camera_is_blind = (c_front == CAMERA_ERROR_TOKEN) # 999
+        lidar_sees_wall = (l_front < SAFETY_BUFFER_CM)
+
+        if camera_is_blind and lidar_sees_wall:
+            final_front = l_front
+        else:
+            final_front = min(l_front, c_front)
+
+        return final_front, final_left, final_right
+
+    def stop(self):
+        ...
+```
+````
