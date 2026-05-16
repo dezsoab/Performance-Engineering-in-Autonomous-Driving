@@ -126,6 +126,9 @@ transition: slide-up
       <div class="text-xs font-mono opacity-40 mb-0 uppercase tracking-widest">RQ3</div>
       <h2 class="!text-3xl !font-extrabold !text-purple-400">Robustness</h2>
       <p class="opacity-50 mt-4 text-xs">Uncontrolled worlds.</p>
+      <div class="relative w-full aspect-video mt-6 rounded-xl overflow-hidden border border-white/10">
+      <img v-click="7" src="/uncontrolled.jpg" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" />
+    </div>
     </div>
   </div>
 
