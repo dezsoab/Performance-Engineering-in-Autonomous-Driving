@@ -95,7 +95,7 @@ transition: slide-up
 transition: slide-up
 ---
 
-# The Problem
+# Problem
 
 <div class="grid grid-cols-3 gap-8 mt-10">
 
@@ -137,7 +137,6 @@ transition: slide-up
 
 <!-- Slide 5 -->
 ---
-layout: center
 transition: slide-up
 ---
 
@@ -147,4 +146,81 @@ transition: slide-up
   <video autoplay loop muted playsinline class="w-full h-full object-cover">
     <source src="/demo.mp4" type="video/mp4">
   </video>
+</div>
+
+<!-- Slide 6 -->
+---
+transition: none
+---
+
+# Architecture
+
+<div class="grid grid-cols-10 gap-6 mt-8">
+  <div v-click="1" class="col-span-4 flex flex-col justify-center mt-10">
+    <div class="p-4 rounded-xl border border-red-500/20 bg-red-500/5 text-xs text-red-300 italic">
+      Problem: High loop jitter and a critical safety lag
+    </div>
+  </div>
+
+  <div v-click="2" class="col-span-7 flex flex-col justify-center">
+    <h3 class="text-xl font-bold text-purple-400 flex items-center gap-2 mb-4">
+      <carbon:direction-fork /> Decoupling the processes
+    </h3>
+    <div class="border border-white/10 rounded-2xl overflow-hidden bg-white/5">
+      <table class="w-full text-left text-sm border-collapse">
+        <thead>
+          <tr class="border-b border-white/10 bg-white/5 text-slate-400 font-mono text-xs">
+            <th class="p-4">Architecture</th>
+            <th class="p-4">Avg Latency</th>
+            <th class="p-4">FPS Equiv.</th>
+            <th class="p-4">Blind Distance (at 60 cm/s)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-white/10 opacity-50">
+            <td class="p-4 font-semibold">Single-Thread</td>
+            <td class="p-4 font-mono">168.6 ms</td>
+            <td class="p-4 font-mono">5.9</td>
+            <td class="p-4 font-mono text-red-400">10.1 cm</td>
+          </tr>
+          <tr class="bg-emerald-500/5 text-emerald-300">
+            <td class="p-4 font-bold">Multi-Thread</td>
+            <td class="p-4 font-mono font-bold">16.2 ms</td>
+            <td class="p-4 font-mono">61.7</td>
+            <td class="p-4 font-mono font-bold text-emerald-400">1.0 cm</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p v-after class="text-[11px] opacity-40 mt-3 italic text-left">
+      *Decoupling background tracking reduced physical blind distance by 90.1%
+    </p>
+  </div>
+</div>
+
+<!-- Slide 7 -->
+---
+transition: slide-up
+---
+
+# Architecture
+<div class="mt-32 flex justify-center items-center w-full transform scale-200">
+
+```mermaid
+graph LR
+    ML[Main Loop] -->|Async Request| LT[LiDAR Thread]
+    ML -->|Async Request| CT[Camera Thread]
+    
+    LT -->|Ranging Vectors| ML
+    CT -->|Vision Matrix| ML
+    
+    ML -->|Actuator Signals| MC[Motor Control Thread]
+    ML -->|Non-blocking Queue| LG[Logger Thread]
+
+    style ML fill:#1e293b,stroke:#334155,color:#fff,stroke-width:2px
+    style LT fill:#8CC0EB,stroke:#3b82f6,color:#fff,stroke-width:2px
+    style CT fill:#bc7afa,stroke:#a855f7,color:#fff,stroke-width:2px
+    style LG fill:#898b8c,stroke:#475569,color:#fff,stroke-width:2px
+    style MC fill:#1e9674,stroke:#047857,color:#fff,stroke-width:2px
+```
 </div>
