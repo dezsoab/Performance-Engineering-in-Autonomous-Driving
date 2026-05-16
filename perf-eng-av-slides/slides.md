@@ -318,7 +318,7 @@ transition: slide-up
 transition: slide-up
 ---
 
-# RQ2: Computational Efficiency
+# RQ2: Computational efficiency
 
 <div class="flex items-center gap-3 mt-4 mb-12">
   <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30 uppercase tracking-widest">Hypothesis Accepted</span>
@@ -369,7 +369,7 @@ transition: slide-up
 transition: slide-up
 ---
 
-# RQ3: Operational Robustness
+# RQ3: Operational robustness
 
 <div class="flex items-center gap-3 mt-4 mb-12">
   <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30 uppercase tracking-widest">Hypothesis Accepted</span>
@@ -411,3 +411,37 @@ transition: slide-up
   </div>
 
 </div>
+
+<!-- Slide 12 -->
+---
+layout: center
+class: text-center
+---
+
+# Conclusion
+
+<div class="max-w-4xl mx-auto mt-12">
+  
+  <h2 class="text-3xl font-light leading-relaxed text-slate-500">
+    On most computers, real-time safety is not limited by
+    <span v-mark="{ at: 1, color: '#ef4444', type: 'underline', strokeWidth: 2, padding: 3 }"> raw compute power</span>, 
+    but enabled by 
+    <span v-mark="{ at: 2, color: '#10b981', type: 'circle', strokeWidth: 2, padding: 8 }"> architectural intelligence.</span>.
+  </h2>
+
+  <div v-click="3" class="mt-25">
+    <h1 class="font-normal tracking-tighter text-slate-400">
+      Thank you for your attention.
+    </h1>
+    <p class="text-xs font-mono text-slate-400 mt-4 uppercase tracking-widest">
+      Q&A Session
+    </p>
+  </div>
+
+</div>
+
+<style>
+h1, h2, span {
+  font-weight: 400 !important;
+}
+</style>
