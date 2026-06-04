@@ -129,6 +129,7 @@ transition: slide-up
       <div class="relative w-full aspect-video mt-6 rounded-xl overflow-hidden border border-white/10">
       <img v-click="7" src="/uncontrolled.jpg" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" />
     </div>
+      <p v-click="7" class="text-[10px] opacity-40 mt-2 transition-opacity duration-1000">Source: http://helm.ai</p>
     </div>
   </div>
 
