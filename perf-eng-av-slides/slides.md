@@ -117,7 +117,7 @@ transition: slide-up
     <div v-click="5" class="mt-6 p-4 bg-blue-500/10 rounded-xl border border-blue-500/20">
       <div class="text-xs font-bold text-blue-400 uppercase tracking-tighter">Human Threshold</div>
       <div class="text-2xl font-bold">~1,5s</div>
-      <p class="text-[10px] opacity-40 mt-1 italic">Target: reach 6x faster reaction time</p>
+      <p class="text-[10px] opacity-40 mt-1 italic">Target: reach 60x faster reaction time</p>
     </div>
   </div>
 
@@ -346,7 +346,7 @@ transition: slide-up
     </div>
     <div>
       <div class="text-5xl font-black text-orange font-mono">690</div>
-      <p class="text-[10px] opacity-40 mt-3 font-mono">Pixels / Loop (3-Ray Scanline)</p>
+      <p class="text-[10px] opacity-40 mt-3 font-mono">3-Ray Scanline. 73.600 vs 690 pixels</p>
     </div>
   </div>
 
