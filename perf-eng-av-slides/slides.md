@@ -50,7 +50,7 @@ transition: slide-up
   <div v-click.fade-in class="p-5 rounded-xl border border-white/20 bg-white/5">
     <div class="font-mono text-xs text-yellow-400 mb-1">04</div>
     <div class="text-xl font-semibold">Implementation</div>
-    <div class="text-sm opacity-70 mt-2">3-Ray Scan Optimization</div>
+    <div class="text-sm opacity-70 mt-2">Minimum Trus Model</div>
   </div>
 
   <div v-click.fade-in class="p-5 rounded-xl border border-white/20 bg-white/5">
