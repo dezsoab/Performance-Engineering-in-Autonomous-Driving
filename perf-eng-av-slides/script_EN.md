@@ -3,18 +3,6 @@ Hello everyone. Thank you for coming to my presentation. Today I am going to tal
 
 In my bachelor's thesis, I built a robotic rover and compared two different things: vision data pipelines and LiDAR data pipelines. I measured how fast they process data and how much delay they have.
 
-# 2/12 Agenda Slide
-
-We are going to look at six topics today:
-
-
-- First, my motivation. Why I chose this topic and why it is important.
-- Second, the problem. I will show the weaknesses and blind spots of both sensors.  
-- Third, the architecture. How the software is wired together.
-- Fourth, the Min-Trust Fusion Model. How the code decides which sensor to trust.  
-- Fifth, the results. The benchmarks for speed, latency, and handling edge cases.
-- And finally, the conclusion and what can be done in the future.
-
 # 3/12 Motivation Slide
 My main motivation for this topic comes from my personal life.
 I drive a Tesla myself, which is capable of self-driving. 

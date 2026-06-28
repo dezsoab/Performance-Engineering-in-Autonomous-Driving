@@ -283,8 +283,8 @@ transition: slide-up
 <!-- "We don't need HD video to avoid a wall. By downsampling the camera feed to 320x230, we reduce the memory load by 92%. This makes the data small enough for the Raspberry Pi's cache to handle without lagging." -->
   <div v-click="1" class="p-6 rounded-2xl bg-blue/5 border border-blue/10 flex flex-col justify-between h-64">
     <div>
-      <div class="text-blue-400 mb-4"><carbon:image-search /></div>
-      <h3 class="text-xs font-bold text-blue-400 uppercase tracking-widest">Memory Footprint</h3>
+      <div class="text-blue mb-4"><carbon:image-search /></div>
+      <h3 class="text-xs font-bold text-blue uppercase tracking-widest">Memory Footprint</h3>
     </div>
     <div>
       <div class="text-5xl font-black text-blue font-mono">-92%</div>
@@ -292,26 +292,14 @@ transition: slide-up
     </div>
   </div>
 
-<!-- Instead of a 'brute-force' analysis of every pixel, we implemented 3-Ray Scanline Analysis. By only evaluating three specific vertical columns (the center and the paths of the two wheels), we reduce the CPU's workload from processing 73,600 pixels to just 690 pixels per loop. This makes the vision pipeline extremely lightweight -->
-  <div v-click="2" class="p-6 rounded-2xl bg-orange/5 border border-orange/10 flex flex-col justify-between h-64">
-    <div>
-      <div class="text-orange-400 mb-4"><carbon:View-Next /></div>
-      <h3 class="text-xs font-bold text-orange-400 uppercase tracking-widest">Algorithmic Load</h3>
-    </div>
-    <div>
-      <div class="text-5xl font-black text-orange font-mono">690</div>
-      <p class="text-[10px] opacity-40 mt-3 font-mono">3-Ray Scanline. 73.600 vs 690 pixels</p>
-    </div>
-  </div>
-
 <!-- The final breakthrough came from Asynchronous Threading. By moving the 'heavy' I/O tasks like logging and sensor polling into background threads, we decoupled the main control loop from hardware waiting times. This resulted in a 10.4x speedup, bringing latency down from 168ms to a stable 16.2ms -->
   <div v-click="3" class="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex flex-col justify-between h-64">
     <div>
-      <div class="text-emerald-400 mb-4"><carbon:flash /></div>
-      <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Execution Speed</h3>
+      <div class="text-emerald mb-4"><carbon:flash /></div>
+      <h3 class="text-xs font-bold text-emerald uppercase tracking-widest">Execution Speed</h3>
     </div>
     <div>
-      <div class="text-5xl font-black text-emerald-400 font-mono">10.4x</div>
+      <div class="text-5xl font-black text-emerald font-mono">10.4x</div>
       <p class="text-[10px] opacity-40 mt-3 font-mono">168.6ms → 16.2ms Latency</p>
     </div>
   </div>
