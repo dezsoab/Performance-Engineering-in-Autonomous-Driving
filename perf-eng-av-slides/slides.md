@@ -278,29 +278,29 @@ transition: slide-up
   <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30 uppercase tracking-widest">Hypothesis Accepted</span>
 </div>
 
-<div class="grid grid-cols-3 gap-6">
+<div class="flex items-center justify-center gap-3">
 
 <!-- "We don't need HD video to avoid a wall. By downsampling the camera feed to 320x230, we reduce the memory load by 92%. This makes the data small enough for the Raspberry Pi's cache to handle without lagging." -->
-  <div v-click="1" class="p-6 rounded-2xl bg-blue/5 border border-blue/10 flex flex-col justify-between h-64">
+  <div v-click="1" class="p-6 rounded-2xl bg-blue/5 border border-blue/10 flex flex-col justify-between h-64 w-64">
     <div>
       <div class="text-blue mb-4"><carbon:image-search /></div>
-      <h3 class="text-xs font-bold text-blue uppercase tracking-widest">Memory Footprint</h3>
+      <h3 class="text-xs font-bold text-black uppercase">Memory Footprint</h3>
     </div>
     <div>
       <div class="text-5xl font-black text-blue font-mono">-92%</div>
-      <p class="text-[10px] opacity-40 mt-3 font-mono">1280x720 → 320x230</p>
+      <p class="text-[10px]  mt-3 font-mono">1280x720 → 320x230</p>
     </div>
   </div>
 
 <!-- The final breakthrough came from Asynchronous Threading. By moving the 'heavy' I/O tasks like logging and sensor polling into background threads, we decoupled the main control loop from hardware waiting times. This resulted in a 10.4x speedup, bringing latency down from 168ms to a stable 16.2ms -->
-  <div v-click="3" class="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex flex-col justify-between h-64">
+  <div v-click="2" class="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex flex-col justify-between h-64 w-64">
     <div>
       <div class="text-emerald mb-4"><carbon:flash /></div>
-      <h3 class="text-xs font-bold text-emerald uppercase tracking-widest">Execution Speed</h3>
+      <h3 class="text-xs font-bold text-black uppercase">Execution Speed</h3>
     </div>
     <div>
       <div class="text-5xl font-black text-emerald font-mono">10.4x</div>
-      <p class="text-[10px] opacity-40 mt-3 font-mono">168.6ms → 16.2ms Latency</p>
+      <p class="text-[10px]  mt-3 font-mono">168.6ms → 16.2ms Latency</p>
     </div>
   </div>
 
@@ -317,9 +317,9 @@ transition: slide-up
   <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30 uppercase tracking-widest">Hypothesis Accepted</span>
 </div>
 
-<div class="grid grid-cols-3 gap-6">
+<div class="flex items-center justify-center">
 
-  <div v-click="1" class="p-6 rounded-2xl bg-orange-500/25 border border-orange-500/20 flex flex-col justify-between h-64">
+  <!-- <div v-click="1" class="p-6 rounded-2xl bg-orange-500/25 border border-orange-500/20 flex flex-col justify-between h-64">
     <div>
       <div class="text-orange-400 mb-4"><carbon:view-off /></div>
       <h3 class="text-xs font-bold text-orange-400 uppercase tracking-widest">Camera Panic</h3>
@@ -339,16 +339,16 @@ transition: slide-up
       <div class="text-5xl font-black text-white font-mono">STABLE</div>
       <p class="text-[10px] text-purple-400/60 mt-3 font-mono">Active tracking regardless of texture surface</p>
     </div>
-  </div>
+  </div> -->
 
-  <div v-click="3" class="p-6 rounded-2xl bg-emerald-500/25 border border-emerald-500/20 flex flex-col justify-between h-64">
+  <div v-click="1" class="p-6 rounded-2xl bg-emerald-500/20 border border-emerald-500/20 flex flex-col justify-between h-64 w-64">
     <div>
-      <div class="text-emerald-400 mb-4"><carbon:security /></div>
-      <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-widest">System Reliability</h3>
+      <div class="text-emerald mb-4"><carbon:security /></div>
+      <h3 class="text-xs font-bold  uppercase tracking-widest">System Reliability</h3>
     </div>
     <div>
-      <div class="text-5xl font-black text-emerald-400 font-mono">93%</div>
-      <p class="text-[10px] text-emerald-400/50 mt-3 font-mono">Context-aware system revoked camera authority to maintain safety</p>
+      <div class="text-5xl font-black text-emerald font-mono">93%</div>
+      <p class="text-[10px] text-black mt-3 font-mono">Context-aware system revoked camera authority to maintain safety</p>
     </div>
   </div>
 
@@ -365,10 +365,10 @@ class: text-center
 <div class="max-w-4xl mx-auto mt-12">
   
   <h2 class="text-3xl font-light leading-relaxed text-slate-500">
-    On most computers, real-time safety is not limited by
-    <span v-mark="{ at: 1, color: '#ef4444', type: 'underline', strokeWidth: 2, padding: 3 }"> raw compute power</span>, 
-    but enabled by 
-    <span v-mark="{ at: 2, color: '#10b981', type: 'circle', strokeWidth: 2, padding: 8 }"> architectural intelligence.</span>.
+    Neither sensor is
+    <span v-mark="{ at: 1, color: '#ef4444', type: 'underline', strokeWidth: 2, padding: 3 }"> inherently superior</span>, 
+    real-time safety comes from letting them
+    <span v-mark="{ at: 2, color: '#10b981', type: 'circle', strokeWidth: 2, padding: 8 }"> complement each other.</span>
   </h2>
 
   <div v-click="3" class="mt-25">
